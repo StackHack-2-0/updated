@@ -1,0 +1,22 @@
+{% extends "client/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+    {% block content %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div id="top">
+        <div class="container" style="background-color: rgb(184, 109, 55);">
+            <h1 style="text-align: center; font-family: 'Dancing Script', cursive;">Update Profile Details</h1>
+            <br>
+            <form method="post" action="{% url 'client:update' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {{form.media}}
+                <input type="submit" class="btn btn-primary" value="Update" />
+                <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+    {% endblock %}

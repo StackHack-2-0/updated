@@ -11,6 +11,7 @@ class Profile(models.Model):
     mobile = models.CharField(null=True,max_length=20)
     email = models.EmailField(null=True,validators=[EmailValidator(message="Enter a valid Email address",code=None,whitelist=None)])
     id_card = models.ImageField(null=True,upload_to='id/')
+    verified =  models.BooleanField(default=False,null=True)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=False, auto_now_add=True)
 

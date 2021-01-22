@@ -3,17 +3,16 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div id="top">
         <div class="container">
-            <h1 style="text-align: center; font-family: 'Dancing Script', cursive;">Profile</h1>
-            <h2 style="text-align: center;">Registration Id: {{ form.registration_id }}</h2>
+            <h1 style="text-align: center; font-family: 'Dancing Script', cursive;">Preview</h1>
+            <br>
             <br>
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                   <img src="{{ form.id_card.url }}" class="img-responsive" 
-                    style="width: 100%; height: auto; margin: auto; margin-bottom: 2em;" />
-                  
-              </div>
+                    style="width: 100%; height: auto; margin: 0 auto; margin-bottom: 2em;" />
+                </div>
                 <div class="col-xs-12 col-sm-6">
-                  <h2 >
+                  <p style="font-size:large;">
                     <strong>Name: </strong>{{ form.name }}
                     <br>
                     <strong>Email: </strong>{{ form.email }}
@@ -25,10 +24,20 @@
                     <strong>Organization: </strong>{{form.organization}}
                     <br>
                     <strong>Employee Id: </strong>{{ form.employee_id }}
-                    </h2>
+                    <br><br>
+                    <form method="get" action="{% url 'client:update' %}" enctype="multipart/form-data">
+                        <input type="submit" class="btn btn-warning" name="Update" value="Update" />
+                    </form>
+                    <form method="post" action="{% url 'client:submit' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-success" name="Submit" value="Submit" />
+                    </form>
+                    </p>
                 </div>
               </div>
-        </div></div>
+        </div>
+        <br>
+    </div>
           
     <!-- ***** Main Banner Area End ***** -->
     {% endblock %}
