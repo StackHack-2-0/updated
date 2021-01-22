@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Klassy Cafe </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'client/css/bootstrap.min.css'  %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'client/css/font-awesome.css'  %}">
+
+    <link rel="stylesheet" href="{% static 'client/css/menu.css' %}">
+
+    <link rel="stylesheet" href="{% static 'client/css/templatemo-klassy-cafe.css'  %}">
+
+    <link rel="stylesheet" href="{% static 'client/css/owl-carousel.css'  %}">
+
+    <link rel="stylesheet" href="{% static 'client/css/owl-carousel.css'  %}">
+
+    </head>
+
+    <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="home.html" class="logo">
+                            <img src="{% static 'client/images/klassy-logo.png' %}">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="{% url 'client:home' %}" class="{% block home_active %}{% endblock %}">Home</a></li>
+                            <li ><a href="{% url 'client:menu' %}" class="{% block menu_active %}{% endblock %}">Menu</a></li>
+                            {% if "/" == request.path %}
+                            <li class="scroll-to-section"><a href="#about" >About Us</a></li>
+                            {% endif %}
+                                {% if user.is_authenticated %}
+                                <li class="submenu">
+                                <a href="javascript:;">Welcome {{user}}</a>
+                                <ul>
+                                    <li><a href="{% url 'client:profile' %}">Profile</a></li>
+                                    <li><a href="{% url 'client:logout' %}">Logout</a></li>
+                                </ul>
+                                </li>
+                                {% else %}
+                                <li>
+                                <a href="{% url 'client:login' %}?next={% url 'client:home' %}" class="{% block login_active %}{% endblock %}">Login</a>
+                                </li>
+                                <li>
+                                <a href="{% url 'client:register' %}" class="{% block register_active %}{% endblock %}">Register</a>
+                                </li>
+                                {% endif %}
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    {% block content %}
+
+    {% endblock %}
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-xs-12">
+                    <div class="right-text-content">
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="logo">
+                        <a href="home.html"><img src="{% static 'client/images/white-logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    <div class="left-text-content">
+                        <p>© Copyright Klassy Cafe Co.
+
+                        <br>Design: TemplateMo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'client/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'client/js/popper.js' %}"></script>
+    <script src="{% static 'client/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'client/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'client/js/accordions.js' %}"></script>
+    <script src="{% static 'client/js/datepicker.js' %}"></script>
+    <script src="{% static 'client/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'client/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'client/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'client/js/imgfix.min.js' %}"></script>
+    <script src="{% static 'client/js/slick.js' %}"></script>
+    <script src="{% static 'client/js/lightbox.js' %}"></script>
+    <script src="{% static 'client/js/isotope.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'client/js/custom.js' %}"></script>
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+
+            });
+        });
+
+    </script>
+    <script>
+  // vars
+'use strict'
+var testim = document.getElementById("testim"),
+    testimDots = Array.prototype.slice.call(document.getElementById("testim-dots").children),
+    testimContent = Array.prototype.slice.call(document.getElementById("testim-content").children),
+    testimLeftArrow = document.getElementById("left-arrow"),
+    testimRightArrow = document.getElementById("right-arrow"),
+    testimSpeed = 4500,
+    currentSlide = 0,
+    currentActive = 0,
+    testimTimer,
+    touchStartPos,
+    touchEndPos,
+    touchPosDiff,
+    ignoreTouch = 30;
+;
+
+window.onload = function() {
+
+    // Testim Script
+    function playSlide(slide) {
+        for (var k = 0; k < testimDots.length; k++) {
+            testimContent[k].classList.remove("active");
+            testimContent[k].classList.remove("inactive");
+            testimDots[k].classList.remove("active");
+        }
+
+        if (slide < 0) {
+            slide = currentSlide = testimContent.length-1;
+        }
+
+        if (slide > testimContent.length - 1) {
+            slide = currentSlide = 0;
+        }
+
+        if (currentActive != currentSlide) {
+            testimContent[currentActive].classList.add("inactive");
+        }
+        testimContent[slide].classList.add("active");
+        testimDots[slide].classList.add("active");
+
+        currentActive = currentSlide;
+
+        clearTimeout(testimTimer);
+        testimTimer = setTimeout(function() {
+            playSlide(currentSlide += 1);
+        }, testimSpeed)
+    }
+
+    testimLeftArrow.addEventListener("click", function() {
+        playSlide(currentSlide -= 1);
+    })
+
+    testimRightArrow.addEventListener("click", function() {
+        playSlide(currentSlide += 1);
+    })
+
+    for (var l = 0; l < testimDots.length; l++) {
+        testimDots[l].addEventListener("click", function() {
+            playSlide(currentSlide = testimDots.indexOf(this));
+        })
+    }
+
+    playSlide(currentSlide);
+
+    // keyboard shortcuts
+    document.addEventListener("keyup", function(e) {
+        switch (e.keyCode) {
+            case 37:
+                testimLeftArrow.click();
+                break;
+
+            case 39:
+                testimRightArrow.click();
+                break;
+
+            case 39:
+                testimRightArrow.click();
+                break;
+
+            default:
+                break;
+        }
+    })
+
+    testim.addEventListener("touchstart", function(e) {
+        touchStartPos = e.changedTouches[0].clientX;
+    })
+
+    testim.addEventListener("touchend", function(e) {
+        touchEndPos = e.changedTouches[0].clientX;
+
+        touchPosDiff = touchStartPos - touchEndPos;
+
+        console.log(touchPosDiff);
+        console.log(touchStartPos);
+        console.log(touchEndPos);
+
+
+        if (touchPosDiff > 0 + ignoreTouch) {
+            testimLeftArrow.click();
+        } else if (touchPosDiff < 0 - ignoreTouch) {
+            testimRightArrow.click();
+        } else {
+          return;
+        }
+    })
+}
+</script>
+  </body>
+</html>

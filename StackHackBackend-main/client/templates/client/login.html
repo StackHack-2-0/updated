@@ -1,0 +1,62 @@
+{% extends "client/base.html" %}
+{% load crispy_forms_tags %}
+{% block login_active %}active{% endblock %}
+{% load static %}
+
+
+    {% block content %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div id="top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                      <div class="flip-container">
+                        <div class="flipper" id="flipper">
+                            <div class="front">
+                                 <h1 class="title">Klassy Cafe</h1>
+                                  <form method="post" action="{% url 'client:login' %}">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <input type="submit" class="btn btn-primary" value="Login" />
+                                    <input type="hidden" name="next" value="{{ next }}" />
+                                    </form>
+                                    <br>
+                                    <p>
+                                      Not yet registered, Register <a href="{% url 'client:register' %}"><strong>HERE!</strong></a>
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="main-banner header-text">
+                        <div class="Modern-Slider">
+                          <!-- Item -->
+                          <div class="item">
+                            <div class="img-fill">
+                                <img src="{% static '/client/images/slide-01.jpg' %}" alt="">
+                            </div>
+                          </div>
+                          <!-- // Item -->
+                          <!-- Item -->
+                          <div class="item">
+                            <div class="img-fill">
+                                <img src="{% static '/client/images/slide-02.jpg' %}" alt="">
+                            </div>
+                          </div>
+                          <!-- // Item -->
+                          <!-- Item -->
+                          <div class="item">
+                            <div class="img-fill">
+                                <img src="{% static '/client/images/slide-03.jpg' %}" alt="">
+                            </div>
+                          </div>
+                          <!-- // Item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+{% endblock %}

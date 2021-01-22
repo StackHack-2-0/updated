@@ -1,117 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "client/base.html" %}
+{% load crispy_forms_tags %}
+{% block menu_active %}active{% endblock %}
 {% load static %}
-  <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <title>Klassy Cafe </title>
-<!--
-
-TemplateMo 558 Klassy Cafe
-
-https://templatemo.com/tm-558-klassy-cafe
-
--->
-
-    <link rel="stylesheet" type="text/css" href="{% static 'client/css/bootstrap.min.css'  %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'client/css/font-awesome.css'  %}">
-
-    <link rel="stylesheet" href="{% static 'client/css/menu.css' %}">
-
-    <link rel="stylesheet" href="{% static 'client/css/owl-carousel.css'  %}">
-
-    <link rel="stylesheet" href="{% static 'client/css/owl-carousel.css'  %}">
-
-    </head>
-
-    <body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="home.html" class="logo">
-                            <img src="{% static 'client/images/klassy-logo.png' %}"  align="klassy cafe html template">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top">Home</a></li>
-                            
-                        <!--
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
-                            <li class="scroll-to-section"><a href="#menu" class="active">Menu</a></li>
-                           
-                            
-                           
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-    <!-- **** Login Popup Form ***** -->
-
-
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-
-  <div class="modal-dialog">
-    <div class="loginmodal-container">
-
-      <h1>Login to Your Account</h1><br>
-
-      <form>
-        <input type="text" name="user" placeholder="Username">
-        <input type="password" name="pass" placeholder="Password">
-        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-      </form>
-
-      <div class="login-help">
-        <a href="#">Join</a> - <a href="#">Forgot Password</a>
-      </div>
-
-    </div>
-   </div>
-
-</div>
-    <!-- **** Login popup ends **** -->
-
+{% block content %}
      <!-- **** Menu items start **** -->
   <section id="our_menu" class="pt-5 pb-5">
     <div class="container">
@@ -139,12 +31,12 @@ https://templatemo.com/tm-558-klassy-cafe
         <br>
         
           </div>
-           <form class="example" style="align-items: center;" action="action_page.php">
+           <!-- <form class="example" style="align-items: center;" action="action_page.php">
   
              <input type="text" placeholder="Search.." name="search">
             <button 
               type="submit"><i class="fa fa-search"></i></button>
-        </form> 
+        </form>  -->
 
       <div class="row">
        
@@ -393,87 +285,4 @@ https://templatemo.com/tm-558-klassy-cafe
     </div>
   </section>
     <!-- **** Menu items ends ***** -->
-
-
-    <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-xs-12">
-                    <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="logo">
-                        <a href="home.html"><img src="{% static 'client/images/white-logo.png' %}" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-12">
-                    <div class="left-text-content">
-                        <p>© Copyright Klassy Cafe Co.
-
-                        <br>Design: TemplateMo</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="{% static 'client/js/jquery-2.1.0.min.js' %}"></script>
-
-    <!-- Bootstrap -->
-    <script src="{% static 'client/js/popper.js' %}"></script>
-    <script src="{% static 'client/js/bootstrap.min.js' %}"></script>
-
-    <!-- Plugins -->
-    <script src="{% static 'client/js/owl-carousel.js' %}"></script>
-    <script src="{% static 'client/js/accordions.js' %}"></script>
-    <script src="{% static 'client/js/datepicker.js' %}"></script>
-    <script src="{% static 'client/js/scrollreveal.min.js' %}"></script>
-    <script src="{% static 'client/js/waypoints.min.js' %}"></script>
-    <script src="{% static 'client/js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'client/js/imgfix.min.js' %}"></script>
-    <script src="{% static 'client/js/slick.js' %}"></script>
-    <script src="{% static 'client/js/lightbox.js' %}"></script>
-    <script src="{% static 'client/js/isotope.js' %}"></script>
-
-    <!-- Global Init -->
-    <script src="{% static 'client/js/custom.js' %}"></script>
-    <script>
-
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
-
-            });
-        });
-
-    </script>
-    <script>
-  var loginButton = document.getElementById("loginButton");
-var registerButton = document.getElementById("registerButton");
-
-loginButton.onclick = function(){
-  document.querySelector("#flipper").classList.toggle("flip");
-}
-
-registerButton.onclick = function(){
-  document.querySelector("#flipper").classList.toggle("flip");
-}
-  </script>
-  </body>
-</html>
+    {% endblock %}

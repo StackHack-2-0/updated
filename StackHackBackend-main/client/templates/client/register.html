@@ -1,0 +1,24 @@
+{% extends "client/base.html" %}
+{% load crispy_forms_tags %}
+{% block register_active %}active{% endblock %}
+{% load static %}
+
+
+    {% block content %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div id="top">
+        <div class="container" style="background-color: rgb(184, 109, 55);">
+            <h1 style="text-align: center; font-family: 'Dancing Script', cursive;">Give Us Chance To Serve You</h1>
+            <br>
+            <form method="post" action="{% url 'client:register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <br>
+                {{ p_reg_form|crispy }}
+                <input type="submit" class="btn btn-primary" value="Register" />
+                <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+    {% endblock %}

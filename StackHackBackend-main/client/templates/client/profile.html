@@ -1,0 +1,33 @@
+{% extends "client/base.html" %}
+    {% block content %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div id="top">
+        <div class="container">
+            <h1 style="text-align: center; font-family: 'Dancing Script', cursive;">Profile</h1>
+            <h1 style="text-align: center;">Registration Id: {{ form.registration_id }}</h1>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  <img src="{{ form.id_card.url }}" class="img-responsive" 
+                    style="width: 50%; height: auto; margin: auto; margin-bottom: 2em;" />
+                  
+              </div>
+                <div class="col-xs-12 col-sm-6">
+                  <p>
+                    <strong>Name: </strong>{{ form.name }}
+                    <br>
+                    <strong>Email: </strong>{{ form.email }}
+                    <br>
+                    <strong>Username: </strong>{{ user }}
+                    <br>
+                    <strong>Mobile: </strong>{{ form.mobile }}
+                    <br>
+                    <strong>Organization: </strong>{{form.organization}}
+                    <br>
+                    <strong>Employee Id: </strong>{{ form.employee_id }}
+                </div>
+              </div>
+        </div></div>
+          
+    <!-- ***** Main Banner Area End ***** -->
+    {% endblock %}
